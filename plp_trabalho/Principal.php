@@ -1,0 +1,64 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Lógica para criar um novo pedido
+    // Esta seção será preenchida com a lógica adequada
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Criar Pedido</title>
+</head>
+<body>
+    <h1>Criar Pedido</h1>
+    
+    <form action="" method="post">
+        <!-- Seleção do Cliente -->
+        <label for="cliente">Selecione o Cliente:</label>
+        <select id="cliente" name="cliente" required>
+            <!-- Popule dinamicamente com clientes do banco de dados ou array -->
+            <option value="1">Cliente 1</option>
+            <option value="2">Cliente 2</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+        
+        <!-- Adicionar Produtos ao Carrinho -->
+        <label for="produto">Selecione um Produto:</label>
+        <select id="produto" name="produto" required>
+            <!-- Popule dinamicamente com produtos do banco de dados ou array -->
+            <option value="1">Produto 1</option>
+            <option value="2">Produto 2</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+        <button type="button" onclick="adicionarProduto()">Adicionar ao Carrinho</button>
+
+        <!-- Carrinho de Compras -->
+        <div id="carrinho">
+            <h2>Carrinho de Compras</h2>
+            <ul id="lista-carrinho">
+                <!-- Itens do carrinho serão exibidos aqui -->
+            </ul>
+        </div>
+
+        <button type="submit">Criar Pedido</button>
+    </form>
+
+    <script>
+        // Função para adicionar produtos ao carrinho
+        function adicionarProduto() {
+            var produtoSelecionado = document.getElementById("produto");
+            var listaCarrinho = document.getElementById("lista-carrinho");
+            
+            // Criar um novo item para adicionar ao carrinho
+            var novoItem = document.createElement("li");
+            novoItem.textContent = produtoSelecionado.options[produtoSelecionado.selectedIndex].text;
+            
+            // Adicionar item à lista do carrinho
+            listaCarrinho.appendChild(novoItem);
+        }
+    </script>
+</body>
+</html>
